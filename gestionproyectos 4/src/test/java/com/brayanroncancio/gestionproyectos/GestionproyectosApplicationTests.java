@@ -52,7 +52,7 @@ class ControladorPrincipalTest {
     @InjectMocks
     private Controller controladorPrincipal;
 
-    // ******** UNIT TEST PARA ENDPOINTS RELACIONADO CON USUARIOS *************
+    // ******** UNIT TEST RELACIONADO CON USUARIOS *************
 
     @Test
     void obtenerTodosLosUsuarios() {
@@ -79,7 +79,7 @@ class ControladorPrincipalTest {
 
     @Test
     void crearUsuario() {
-        Usuario usuario = new Usuario(3L, "Loki", "loki@cosmo.com", "password", "desarrollador");
+        Usuario usuario = new Usuario(3L, "Brayan", "brayan@example.com", "123456", "desarrollador");
         when(usuarioServicio.crearUsuario(any(), any(), any(), any())).thenReturn(usuario);
 
         ResponseEntity<Usuario> responseEntity = controladorPrincipal.crearUsuario(usuario);
@@ -88,9 +88,9 @@ class ControladorPrincipalTest {
         assertEquals(usuario, responseEntity.getBody());
     }
 
-    // ******** UNIT TESTS PARA ENDPOINTS RELACIONADOS CON PROYECTOS *************
+    // ******** UNIT TESTS RELACIONADOS CON PROYECTOS *************
 
-    // ******** UNIT TESTS PARA ENDPOINTS RELACIONADOS CON HISTORIAS DE USUARIO *************
+    // ******** UNIT TESTS  RELACIONADOS CON HISTORIAS DE USUARIO *************
 
     @Test
     void obtenerTodasLasHistorias() {
@@ -105,7 +105,7 @@ class ControladorPrincipalTest {
 
     @Test
     void obtenerHistoriaUsuarioPorId() {
-        Long historiaId = 1L;
+        Long historiaId = 2L;
         HistoriaUsuario historia = new HistoriaUsuario();
         when(historiaUsuarioRepositorio.findById(historiaId)).thenReturn(Optional.of(historia));
 
@@ -117,7 +117,7 @@ class ControladorPrincipalTest {
 
     @Test
     void crearHistoriaUsuario() {
-        HistoriaUsuario nuevaHistoria = new HistoriaUsuario(1L, "Detalles de la historia", "Criterios de aceptación", "En progreso", new Proyecto());
+        HistoriaUsuario nuevaHistoria = new HistoriaUsuario(2L, "Detalles de la historia", "Criterios de aceptación", "En progreso", new Proyecto());
         when(historiaUsuarioRepositorio.save(any())).thenReturn(nuevaHistoria);
 
         HistoriaUsuario result = historiaServicio.crearHistoriaUsuario(nuevaHistoria.getDetalles(), nuevaHistoria.getCriteriosAceptacion(), nuevaHistoria.getEstado(), nuevaHistoria.getProyecto());
@@ -127,7 +127,7 @@ class ControladorPrincipalTest {
     }
 
 
-    // ******** UNIT TESTS PARA ENDPOINTS RELACIONADOS CON TAREAS *************
+    // ******** UNIT TESTS RELACIONADOS CON TAREAS *************
 
     @Test
     void obtenerTodasLasTareas() {
@@ -142,7 +142,7 @@ class ControladorPrincipalTest {
 
     @Test
     void obtenerTareaPorId() {
-        Long tareaId = 1L;
+        Long tareaId = 4L;
         Tarea tarea = new Tarea();
         when(tareaRepositorio.findById(tareaId)).thenReturn(Optional.of(tarea));
 
@@ -154,7 +154,7 @@ class ControladorPrincipalTest {
 
     @Test
     void crearTarea() {
-        Tarea nuevaTarea = new Tarea(1L,"Descripción de la tarea", "Pendiente", new HistoriaUsuario());
+        Tarea nuevaTarea = new Tarea(4L,"Descripción de la tarea", "Pendiente", new HistoriaUsuario());
         when(tareaRepositorio.save(any())).thenReturn(nuevaTarea);
 
         Tarea result = tareaServicio.crearTarea(nuevaTarea.getDescripcion(), nuevaTarea.getEstado(), nuevaTarea.getHistoriaUsuario());
