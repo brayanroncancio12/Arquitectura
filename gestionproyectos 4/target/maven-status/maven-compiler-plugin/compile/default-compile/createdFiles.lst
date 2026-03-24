@@ -1,0 +1,15 @@
+com/brayanroncancio/gestionproyectos/GestionproyectosApplication.class
+com/brayanroncancio/gestionproyectos/model/HistoriaUsuario.class
+com/brayanroncancio/gestionproyectos/model/Proyecto.class
+com/brayanroncancio/gestionproyectos/repository/ProyectoRepository.class
+com/brayanroncancio/gestionproyectos/service/HistoriaUsuarioService.class
+com/brayanroncancio/gestionproyectos/service/UsuarioService.class
+com/brayanroncancio/gestionproyectos/repository/UsuarioRepository.class
+com/brayanroncancio/gestionproyectos/controller/Controller.class
+com/brayanroncancio/gestionproyectos/service/ProyectoService.class
+com/brayanroncancio/gestionproyectos/model/Usuario.class
+com/brayanroncancio/gestionproyectos/repository/TareaRepository.class
+com/brayanroncancio/gestionproyectos/model/Tarea.class
+com/brayanroncancio/gestionproyectos/service/TareaService.class
+com/brayanroncancio/gestionproyectos/repository/HistoriaUsuarioRepository.class
+com/brayanroncancio/gestionproyectos/config/SwaggerConfig.class
