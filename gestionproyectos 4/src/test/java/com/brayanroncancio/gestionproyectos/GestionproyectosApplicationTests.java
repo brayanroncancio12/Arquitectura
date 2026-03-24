@@ -10,18 +10,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.brayanroncancio.gestionproyectos.controller.Controller;
-import com.brayanroncancio.gestionproyectos.persistanse.HistoriaUsuario;
-import com.brayanroncancio.gestionproyectos.persistanse.Proyecto;
-import com.brayanroncancio.gestionproyectos.persistanse.Tarea;
-import com.brayanroncancio.gestionproyectos.persistanse.Usuario;
+import com.brayanroncancio.gestionproyectos.model.HistoriaUsuario;
+import com.brayanroncancio.gestionproyectos.model.Proyecto;
+import com.brayanroncancio.gestionproyectos.model.Tarea;
+import com.brayanroncancio.gestionproyectos.model.Usuario;
 import com.brayanroncancio.gestionproyectos.repository.HistoriaUsuarioRepository;
 import com.brayanroncancio.gestionproyectos.repository.ProyectoRepository;
-import com.brayanroncancio.gestionproyectos.repository.TareaRepository1;
+import com.brayanroncancio.gestionproyectos.repository.TareaRepository;
+import com.brayanroncancio.gestionproyectos.service.HistoriaUsuarioService;
 import com.brayanroncancio.gestionproyectos.service.ProyectoService;
 import com.brayanroncancio.gestionproyectos.service.TareaService;
 import com.brayanroncancio.gestionproyectos.service.UsuarioService;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,14 +42,14 @@ class ControladorPrincipalTest {
     private ProyectoRepository proyectoRepositorio;
 
     @Mock
-    private HistoriaUsuario historiaServicio;
+    private HistoriaUsuarioService historiaServicio;
     @Mock
     private HistoriaUsuarioRepository historiaUsuarioRepositorio;
 
     @Mock
     private TareaService tareaServicio;
     @Mock
-    private TareaRepository1 tareaRepositorio;
+    private TareaRepository tareaRepositorio;
 
     @InjectMocks
     private Controller controladorPrincipal;
@@ -117,7 +119,7 @@ class ControladorPrincipalTest {
 
     @Test
     void crearHistoriaUsuario() {
-        HistoriaUsuario nuevaHistoria = new HistoriaUsuario(2L, "Detalles de la historia", "Criterios de aceptación", "En progreso", new Proyecto());
+        HistoriaUsuario nuevaHistoria = new HistoriaUsuario(2L, "Detalles de la historia", "Criterios de aceptación", "En progreso", new Proyecto(), new HashSet<>());
         when(historiaUsuarioRepositorio.save(any())).thenReturn(nuevaHistoria);
 
         HistoriaUsuario result = historiaServicio.crearHistoriaUsuario(nuevaHistoria.getDetalles(), nuevaHistoria.getCriteriosAceptacion(), nuevaHistoria.getEstado(), nuevaHistoria.getProyecto());

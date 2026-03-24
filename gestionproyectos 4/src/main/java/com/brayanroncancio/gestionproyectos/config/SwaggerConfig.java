@@ -1,4 +1,4 @@
-package com.brayanroncancio.gestionproyectos.context;
+package com.brayanroncancio.gestionproyectos.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.proyectos.gestionproyectos.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.brayanroncancio.gestionproyectos.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());

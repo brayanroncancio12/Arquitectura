@@ -3,8 +3,8 @@ package com.brayanroncancio.gestionproyectos.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.brayanroncancio.gestionproyectos.persistanse.HistoriaUsuario;
-import com.brayanroncancio.gestionproyectos.persistanse.Proyecto;
+import com.brayanroncancio.gestionproyectos.model.HistoriaUsuario;
+import com.brayanroncancio.gestionproyectos.model.Proyecto;
 import com.brayanroncancio.gestionproyectos.repository.HistoriaUsuarioRepository;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class HistoriaUsuarioService {
 
     public HistoriaUsuario obtenerHistoriaUsuarioPorId(Long historiaId) {
         return historiaUsuarioRepositorio.findById(historiaId).orElseThrow(() ->
-                new NoSuchElementException("Proyecto no encontrado " + historiaId));
+                new NoSuchElementException("Historia de usuario no encontrada: " + historiaId));
     }
 
     public HistoriaUsuario crearHistoriaUsuario(String detalles, String criteriosAceptacion, String estado, Proyecto proyecto) {

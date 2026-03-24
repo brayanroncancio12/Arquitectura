@@ -3,8 +3,8 @@ package com.brayanroncancio.gestionproyectos.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.brayanroncancio.gestionproyectos.persistanse.Proyecto;
-import com.brayanroncancio.gestionproyectos.persistanse.Usuario;
+import com.brayanroncancio.gestionproyectos.model.Proyecto;
+import com.brayanroncancio.gestionproyectos.model.Usuario;
 
 import java.util.List;
 

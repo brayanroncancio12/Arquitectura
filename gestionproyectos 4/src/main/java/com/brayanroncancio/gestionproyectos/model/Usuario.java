@@ -1,4 +1,4 @@
-package com.brayanroncancio.gestionproyectos.persistanse;
+package com.brayanroncancio.gestionproyectos.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
